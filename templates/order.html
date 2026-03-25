@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <title>Restaurant Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Menu</h1>
+        <form method="post">
+            <div class="menu-row">
+                {% for key, (name, price) in menu.items() %}
+                    <div class="menu-item">
+                        {% if name == 'Pizza' %}
+                            <img src="{{ url_for('static', filename='pizza.jpg') }}" alt="Pizza">
+                        {% elif name == 'Burger' %}
+                            <img src="{{ url_for('static', filename='burger.jpg') }}" alt="Burger">
+                        {% elif name == 'Pasta' %}
+                            <img src="{{ url_for('static', filename='pasta.jpg') }}" alt="Pasta">
+                        {% elif name == 'Salad' %}
+                            <img src="{{ url_for('static', filename='salad.jpg') }}" alt="Salad">
+                        {% endif %}
+                        <input type="checkbox" name="items" value="{{ key }}"> {{ name }} - ₹{{ price }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div>
+                <button type="submit">Place Order</button><br><br>
+                <a href="{{ url_for('home') }}">Back to Home</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

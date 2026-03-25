@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hotel AnCasa - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hotel AnCasa</h1>
+        <h2>Home Page</h2>
+        <ul>
+            <li><a href="{{ url_for('book_room') }}">Book Room</a></li><br>
+            <li><a href="{{ url_for('rooms_info') }}">Rooms Info</a></li><br>
+            <li><a href="{{ url_for('restaurant_order') }}">Restaurant Order</a></li><br>
+            <li><a href="{{ url_for('payment') }}">Payment</a></li><br>
+        </ul>
+    </div>
+</body>
+</html>

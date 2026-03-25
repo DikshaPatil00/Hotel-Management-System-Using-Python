@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+        <p>Total Amount: ₹{{ total }}</p>
+        <form method="post">
+            Payment Method:
+            <select name="method">
+                <option>UPI</option>
+                <option>Card</option>
+                <option>Cash</option>
+            </select><br><br>
+            Confirm Payment: <input type="checkbox" name="confirm" value="yes"><br><br>
+            <button type="submit">Pay</button>
+        </form>
+        {% if total > 0 %}
+            <p>Scan this QR code for UPI:</p>
+            <img src="{{ url_for('static', filename='qr.png') }}" width="150">
+        {% endif %}
+        <br>
+        <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>

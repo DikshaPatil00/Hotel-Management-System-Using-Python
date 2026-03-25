@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <title>Rooms Info</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Rooms Info</h1>
+        <ul>
+            {% for type, price, details in rooms %}
+            <li><b>{{ type }}</b> - ₹{{ price }}/day - {{ details }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>
